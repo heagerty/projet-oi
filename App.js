@@ -79,6 +79,14 @@ class ListScreen extends React.Component {
           < Text style={listTextStyle}>John Wayne</Text>
           < Text style={listTextStyle}>Bill Murray</Text>
           < Text style={listTextStyle}>Biz Markie</Text>
+          < Text style={listTextStyle}>John Devos</Text>
+          < Text style={listTextStyle}>Mélissa Araoune</Text>
+          < Text style={listTextStyle}>Baptiste Meftahi</Text>
+          < Text style={listTextStyle}>Casey Heagerty</Text>
+          < Text style={listTextStyle}>Michael Jordan</Text>
+          < Text style={listTextStyle}>John Wayne</Text>
+          < Text style={listTextStyle}>Bill Murray</Text>
+          < Text style={listTextStyle}>Biz Markie</Text>
         </View>
       </View>
     );
@@ -146,7 +154,7 @@ const styles = {
   },
   mapImage: {
     width: 350,
-    height: 300,
+    height: 500,
     resizeMode: 'contain',
     marginTop: 10,
     marginLeft: 10,

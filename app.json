@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Expo2",
-    "slug": "Expo2",
+    "name": "Projet OI",
+    "slug": "projet_oi",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "An attempt to create an app in React Native, for pleasure and perhaps to earn an internship...",
+    "githubUrl": "https://github.com/heagerty/projet-oi"
   }
 }

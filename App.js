@@ -1,30 +1,36 @@
 import React from 'react';
-import { Text, View, Image, Button } from 'react-native';
+import { Text, View, Image, Button, ScrollView } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Header from './components/header'
 
 class AgendaScreen extends React.Component {
   render() {
-    const { textStyle, titleStyle, bodyStyle } = styles;
+    const { textStyle, titleStyle, bodyStyle, agendaStyle, agendaDayStyle } = styles;
     return (
       <View>
       <Header></Header>
       <View style={titleStyle}>
-        <Text >Informations</Text>
+        <Text >Agenda</Text>
       </View>
       <View style={bodyStyle}>
-        < Text style={textStyle}>Hier</Text>
-        < Text >Meetings</Text>
+        < Text style={textStyle}>Mercredi 15 mai 2019</Text>
+        < Text style={agendaStyle}>9h - Techexpo Orleans{"\n"}
+        {'\t'}Salle des Expositions</Text>
+        < Text style={agendaStyle}>14h - Découvrir Laravel{"\n"}
+        {'\t'}Salle des Etoiles</Text>
       </View>
-      <View style={bodyStyle}>
-        < Text style={textStyle}>Aujourd'hui</Text>
-        < Text >Meetings</Text>
+      <View style={agendaDayStyle}>
+        < Text style={textStyle}>Jeudi 16 mai 2019</Text>
+        < Text style={agendaStyle}>9h30 - PHP dans 5 ans{"\n"}
+        {'\t'}Salle Médiéval</Text>
+        < Text style={agendaStyle}>14h00 - Atelier JavaScript{"\n"}
+        {'\t'}Salle Informatique</Text>
       </View>
-      <View style={bodyStyle}>
-        < Text style={textStyle}>Demain</Text>
-        < Text >Meetings</Text>
-      </View>
-    
+      <View style={agendaDayStyle}>
+        < Text style={textStyle}>Vendredi 17 mai 2019</Text>
+        < Text >9h - Evaluer son code{"\n"}
+        {'\t'}Salle d'Espoir</Text>
+      </View>  
     </View>
     );
   }
@@ -51,7 +57,7 @@ class InformationScreen extends React.Component {
           < Text >mot de passe: password</Text>
         </View>
         <View style={bodyStyle}>
-          < Text style={textStyle}>Contacte</Text>
+          < Text style={textStyle}>Contact</Text>
           <Button onPress={() => Linking.openURL('mailto:support@grandhotel.com') }
       title="support@grandhotel.com" />
         </View>
@@ -71,22 +77,22 @@ class ListScreen extends React.Component {
           <Text >Liste des participants</Text>
         </View>
         <View style={listStyle}>
-          < Text style={listTextStyle}>John Devos</Text>
-          < Text style={listTextStyle}>Mélissa Araoune</Text>
-          < Text style={listTextStyle}>Baptiste Meftahi</Text>
-          < Text style={listTextStyle}>Casey Heagerty</Text>
-          < Text style={listTextStyle}>Michael Jordan</Text>
-          < Text style={listTextStyle}>John Wayne</Text>
-          < Text style={listTextStyle}>Bill Murray</Text>
-          < Text style={listTextStyle}>Biz Markie</Text>
-          < Text style={listTextStyle}>John Devos</Text>
-          < Text style={listTextStyle}>Mélissa Araoune</Text>
-          < Text style={listTextStyle}>Baptiste Meftahi</Text>
-          < Text style={listTextStyle}>Casey Heagerty</Text>
-          < Text style={listTextStyle}>Michael Jordan</Text>
-          < Text style={listTextStyle}>John Wayne</Text>
-          < Text style={listTextStyle}>Bill Murray</Text>
-          < Text style={listTextStyle}>Biz Markie</Text>
+          < Text style={listTextStyle}>John Devos{'\t'}{'\t'}{'\t'}john@company.com</Text>
+          < Text style={listTextStyle}>Mélissa Araoune{'\t'}melissa@company.com</Text>
+          < Text style={listTextStyle}>Baptiste Meftahi{'\t'}baptiste@company.com</Text>
+          < Text style={listTextStyle}>Casey Heagerty{'\t'}{'\t'}casey@company.com</Text>
+          < Text style={listTextStyle}>Michael Jordan{'\t'}{'\t'}michael@company.com</Text>
+          < Text style={listTextStyle}>John Wayne{'\t'}{'\t'}{'\t'}johnwayne@company.com</Text>
+          < Text style={listTextStyle}>Bill Murray{'\t'}{'\t'}{'\t'}bmurray@company.com</Text>
+          < Text style={listTextStyle}>Biz Markie{'\t'}{'\t'}{'\t'}bmarkie@company.com</Text>
+          < Text style={listTextStyle}>Stevie Wonder{'\t'}{'\t'}stevie@company.com</Text>
+          < Text style={listTextStyle}>Rosa Parks{'\t'}{'\t'}{'\t'}rparks@company.com</Text>
+          < Text style={listTextStyle}>Leonardo da Vinci{'\t'}leonardo@company.com</Text>
+          < Text style={listTextStyle}>Amelia Earhart{'\t'}{'\t'}amelia@company.com</Text>
+          < Text style={listTextStyle}>Aretha Franklin{'\t'}{'\t'}afranklin@company.com</Text>
+          < Text style={listTextStyle}>James Joyce{'\t'}{'\t'}jjoyce@company.com</Text>
+          < Text style={listTextStyle}>Steve Martin{'\t'}{'\t'}smartin@company.com</Text>
+          < Text style={listTextStyle}>Winston Churchill{'\t'}wchurch@company.com</Text>
         </View>
       </View>
     );
@@ -102,16 +108,18 @@ class MapScreen extends React.Component {
           <View style={titleStyle}>
             <Text >Plan</Text>
           </View>
-          <View>
+          <ScrollView>
           <Image
               source={
                 __DEV__
-                  ? require('./assets/images/grandhotel.png')
-                  : require('./assets/images/grandhotel.png')
+                  ? require('./assets/images/hotelLayout.gif')
+                  : require('./assets/images/hotelLayout.gif')
               }
               style={styles.mapImage}
+              maximumZoomScale={200}
+              minimumZoomScale={100}
             />
-            </View>
+            </ScrollView>
 
         </View>
       );
@@ -119,7 +127,7 @@ class MapScreen extends React.Component {
   }
 
 const styles = {
-  titleStyle: {
+      titleStyle: {
       backgroundColor: '#F8F8F8',
       justifyContent: 'center',
       alignItems: 'center',
@@ -136,10 +144,20 @@ const styles = {
       paddingTop: 10,
       paddingBottom: 10
   },
+  agendaStyle: {
+    fontSize: 14,
+    paddingTop: 2,
+    paddingBottom: 8
+},
   bodyStyle: {
     justifyContent: 'center',
       alignItems: 'center',
       paddingTop: 50
+  },
+  agendaDayStyle: {
+    justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: 40
   },
   listStyle: {
     justifyContent: 'center',
@@ -153,8 +171,8 @@ const styles = {
       fontSize: 15,
   },
   mapImage: {
-    width: 350,
-    height: 500,
+    width: 340,
+    height: 470,
     resizeMode: 'contain',
     marginTop: 10,
     marginLeft: 10,
@@ -162,7 +180,7 @@ const styles = {
 };
 
 const TabNavigator = createBottomTabNavigator({
-  Information: InformationScreen,
+  Informations: InformationScreen,
   Liste: ListScreen,
   Agenda: AgendaScreen,
   Plan: MapScreen,

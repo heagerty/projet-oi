@@ -51,7 +51,7 @@ class InformationScreen extends React.Component {
           < Text >mot de passe: password</Text>
         </View>
         <View style={bodyStyle}>
-          < Text style={textStyle}>Contacte</Text>
+          < Text style={textStyle}>Contact</Text>
           <Button onPress={() => Linking.openURL('mailto:support@grandhotel.com') }
       title="support@grandhotel.com" />
         </View>
@@ -63,7 +63,7 @@ class InformationScreen extends React.Component {
 
 class ListScreen extends React.Component {
   render() {
-    const { textStyle, titleStyle, bodyStyle, listStyle, listTextStyle } = styles;
+    const { textStyle, titleStyle, bodyStyle, listStyle, listTextStyle, email } = styles;
     return (
       <View>
         <Header></Header>
@@ -71,22 +71,23 @@ class ListScreen extends React.Component {
           <Text >Liste des participants</Text>
         </View>
         <View style={listStyle}>
-          < Text style={listTextStyle}>John Devos</Text>
+          < Text style={listTextStyle}>John Devos</Text>   <Button onPress={() => Linking.openURL('mailto:john@projetoi.com') }
+                                                                   title="john@projetoi.com" />
           < Text style={listTextStyle}>Mélissa Araoune</Text>
           < Text style={listTextStyle}>Baptiste Meftahi</Text>
           < Text style={listTextStyle}>Casey Heagerty</Text>
           < Text style={listTextStyle}>Michael Jordan</Text>
           < Text style={listTextStyle}>John Wayne</Text>
-          < Text style={listTextStyle}>Bill Murray</Text>
-          < Text style={listTextStyle}>Biz Markie</Text>
-          < Text style={listTextStyle}>John Devos</Text>
-          < Text style={listTextStyle}>Mélissa Araoune</Text>
-          < Text style={listTextStyle}>Baptiste Meftahi</Text>
-          < Text style={listTextStyle}>Casey Heagerty</Text>
-          < Text style={listTextStyle}>Michael Jordan</Text>
-          < Text style={listTextStyle}>John Wayne</Text>
-          < Text style={listTextStyle}>Bill Murray</Text>
-          < Text style={listTextStyle}>Biz Markie</Text>
+          < Text style={listTextStyle}>Muhammad Ali</Text>
+          < Text style={listTextStyle}>Mahatma Gandhi</Text>
+          < Text style={listTextStyle}>Elvis Presley</Text>
+          < Text style={listTextStyle}>Paul McCartney</Text>
+          < Text style={listTextStyle}>Leonardo da Vinci</Text>
+          < Text style={listTextStyle}>Thomas Edison</Text>
+          < Text style={listTextStyle}>Rosa Parks</Text>
+          < Text style={listTextStyle}>Ludwig Beethoven</Text>
+          < Text style={listTextStyle}>Neil Armstrong</Text>
+          < Text style={listTextStyle}>Barack Obama</Text>
         </View>
       </View>
     );
@@ -159,10 +160,13 @@ const styles = {
     marginTop: 10,
     marginLeft: 10,
   },
+    email: {
+        fontSize: 15,
+    },
 };
 
 const TabNavigator = createBottomTabNavigator({
-  Information: InformationScreen,
+  Informations: InformationScreen,
   Liste: ListScreen,
   Agenda: AgendaScreen,
   Plan: MapScreen,

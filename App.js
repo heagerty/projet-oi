@@ -163,7 +163,7 @@ const styles = {
     justifyContent: 'center',
       alignItems: 'left',
       paddingTop: 50,
-      paddingLeft: 50,
+      paddingLeft: 30,
       fontSize: 15,
   },
   listTextStyle: {
